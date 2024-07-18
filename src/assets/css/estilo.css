@@ -1,0 +1,72 @@
+body{
+
+	background: linear-gradient(135deg, #3498db, #e74c3c);
+
+ 	
+}
+
+
+section#area-conteudo-principal {
+
+	background: orange;
+}
+
+.alinhar-direita{
+
+	margin-left: auto; 
+}
+
+input#pesquisa-jogos {
+
+	margin-top: 80px;
+	border-radius: 20px;
+
+}
+
+h2.neymar{
+
+	margin-top: 20px;
+	color: black;
+}
+
+
+#segunda_sessao {
+
+
+	margin-top: 120px;
+}
+
+h4.ajuste{
+
+	margin-top: 50px;
+	color: blue;
+
+}
+
+.custom {
+
+
+	background-image: url(lupa.png);
+	background-repeat: no-repeat;
+	background-size: 60px;
+	background-position: -12px;
+
+
+}
+
+
+footer {
+
+	margin-top: 100px;
+	background: black;
+	
+
+
+}
+
+
+
+
+
+
+
