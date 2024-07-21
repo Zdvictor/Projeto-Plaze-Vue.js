@@ -431,6 +431,9 @@ export default {
 
     }
 
+    this.verifyInit()
+
+
 
   },
 
@@ -767,6 +770,52 @@ export default {
       this.showEntrar = true
       this.showCadastrar = true
       this.showUser = false
+      localStorage.setItem('token', undefined)
+
+
+  },
+
+  verifyInit: function() {
+
+    var tokenStorage = localStorage.getItem("token")
+
+
+    if(tokenStorage != undefined) {
+
+      axios.post("https://projeto-api-plaze.vercel.app/verify", {
+        token: tokenStorage
+      }).then(res => {
+
+        console.log(res)
+        var oldDate = res.data.data[0].data.split('-')
+        var fixDate = oldDate[2] + '/' + oldDate[1] + '/' + oldDate[0]
+
+
+        this.id = res.data.data[0].id
+        this.user = res.data.data[0].user
+        this.email = res.data.data[0].email
+        this.data = fixDate
+        this.cdg = res.data.data[0].cdgafiliado
+        this.loading = false
+        this.psuccess = true
+        this.warningHTTP = null
+        this.showEntrar = false,
+        this.showCadastrar = false,
+        this.showUser = true
+
+
+      }).catch(err => {
+
+        console.log(err)
+
+
+      })
+
+    }else {
+
+      console.log('nao existe token')
+
+    }
 
 
   }
@@ -936,10 +985,12 @@ a.btn.under:hover {
 .adjustLogout {
 
  position: relative;
- top: -5px;
- right: 60px;
+ top: -7px;
+ right: 65px;
  background: rgba(255, 0, 0, 0.822);
  border-radius: 15px;
+ font-style: italic
+
 
 }
 
